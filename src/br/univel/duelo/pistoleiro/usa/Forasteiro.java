@@ -60,7 +60,9 @@ class Forasteiro implements Pistoleiro {
 	 */
 	public Forasteiro defenderTiro(Float tiro) {
 		// O codigo abaixo � o mesmo que vida = vida - tiro;
+		Float perda = vida;
 		vida -= tiro;
+		System.out.println(this.getNome() + " perdeu " + (perda - vida) + " de vida");
 		return this;
 	}
 
