@@ -3,8 +3,8 @@ package br.univel.duelo;
 /*FACTORY METHOD*/
 
 import br.univel.duelo.pistoleiro.Pistoleiro;
-import br.univel.duelo.pistoleiro.PistoleiroFactory;
 import br.univel.duelo.pistoleiro.TipoPistoleiro;
+import br.univel.duelo.pistoleiro.usa.PistoleiroUsaFactory;
 
 /**
  * Inicia um duelo entre os pistoleiros
@@ -17,7 +17,7 @@ public class Duelo {
 	public static void main(String[] args) {
 		// Inst�ncia dois pistoleiro para duelar
 
-		PistoleiroFactory factory = new PistoleiroFactory();
+		PistoleiroUsaFactory factory = new PistoleiroUsaFactory();
 
 		Pistoleiro tripaSeca = factory.create(TipoPistoleiro.DENTRO_DA_LEI, "Tripa Seca");
 		Pistoleiro rachaCuca = factory.create(TipoPistoleiro.FORA_DA_LEI, "Racha cuca");

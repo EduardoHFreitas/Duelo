@@ -1,6 +1,8 @@
-package br.univel.duelo.pistoleiro;
+package br.univel.duelo.pistoleiro.usa;
 
 import java.util.Random;
+
+import br.univel.duelo.pistoleiro.Pistoleiro;
 
 class Cherife implements Pistoleiro {
 

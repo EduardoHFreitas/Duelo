@@ -1,6 +1,8 @@
-package br.univel.duelo.pistoleiro;
+package br.univel.duelo.pistoleiro.br;
 
 import java.util.Random;
+
+import br.univel.duelo.pistoleiro.Pistoleiro;
 
 /**
  * Representa um pistoleiro no nosso joguinho com as a��es b�sicas deste, sendo
@@ -9,7 +11,7 @@ import java.util.Random;
  * @author Will
  *
  */
-class Forasteiro implements Pistoleiro {
+class Cangaceiro implements Pistoleiro {
 
 	/**
 	 * Armazena em tempo de execu��o o nome do pistoleiro
@@ -27,7 +29,7 @@ class Forasteiro implements Pistoleiro {
 	 *
 	 * @param nome
 	 */
-	protected Forasteiro(String nome) {
+	protected Cangaceiro(String nome) {
 		this.nome = nome;
 	}
 
@@ -56,7 +58,7 @@ class Forasteiro implements Pistoleiro {
 	 *
 	 * @param tiro
 	 */
-	public Forasteiro defenderTiro(Float tiro) {
+	public Cangaceiro defenderTiro(Float tiro) {
 		// O codigo abaixo � o mesmo que vida = vida - tiro;
 		vida -= tiro;
 		return this;
