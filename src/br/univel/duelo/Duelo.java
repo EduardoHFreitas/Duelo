@@ -17,9 +17,10 @@ public class Duelo {
 
 	public static void main(String[] args) {
 		// Inst�ncia dois pistoleiro para duelar
+		new Duelo().duelar(new PistoleiroUsaFactory());
+	}
 
-		PistoleiroFactory factory = new PistoleiroUsaFactory();
-
+	public void duelar(final PistoleiroFactory factory) {
 		Pistoleiro tripaSeca = factory.create(TipoPistoleiro.DENTRO_DA_LEI, "Tripa Seca");
 		Pistoleiro rachaCuca = factory.create(TipoPistoleiro.FORA_DA_LEI, "Racha cuca");
 

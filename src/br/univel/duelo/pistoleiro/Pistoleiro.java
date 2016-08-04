@@ -1,5 +1,7 @@
 package br.univel.duelo.pistoleiro;
 
+import br.univel.duelo.arma.Arma;
+
 public interface Pistoleiro {
 
 	Float atirar();
@@ -9,4 +11,6 @@ public interface Pistoleiro {
 	Boolean estaVivo();
 
 	String getNome();
+
+	Pistoleiro setArma(final Arma arma);
 }
