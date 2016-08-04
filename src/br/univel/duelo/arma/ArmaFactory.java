@@ -8,9 +8,9 @@ public class ArmaFactory {
 		Objects.requireNonNull(tipo, "Tipo de arma nao pode ser nulo!");
 		switch (tipo){
 		case LONGA:
-			break;
+			return new Rifle();
 		case CURTA:
-			break;
+			return new Pistola();
 		default:
 			throw new RuntimeException("Tipo de arma desconhecido!");
 		}
