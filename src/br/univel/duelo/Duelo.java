@@ -20,7 +20,6 @@ public class Duelo {
 	//	new Duelo().duelar(new PistoleiroUsaFactory());
 	//}
 
-
 	private final Pistoleiro pistoleiro1;
 	private final Pistoleiro pistoleiro2;
 
