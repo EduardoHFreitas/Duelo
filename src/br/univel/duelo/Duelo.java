@@ -15,30 +15,33 @@ import br.univel.duelo.pistoleiro.usa.PistoleiroUsaFactory;
  */
 public class Duelo {
 
-	public static void main(String[] args) {
-		// Inst�ncia dois pistoleiro para duelar
-		new Duelo().duelar(new PistoleiroUsaFactory());
+	//public static void main(String[] args) {
+    //		// Inst�ncia dois pistoleiro para duelar
+	//	new Duelo().duelar(new PistoleiroUsaFactory());
+	//}
+
+
+	private final Pistoleiro pistoleiro1;
+	private final Pistoleiro pistoleiro2;
+
+	public Duelo (final Pistoleiro pistoleiro1, final Pistoleiro pistoleiro2){
+		this.pistoleiro1 = pistoleiro1;
+		this.pistoleiro2 = pistoleiro2;
 	}
 
-	public void duelar(final PistoleiroFactory factory) {
-		Pistoleiro tripaSeca = factory.create(TipoPistoleiro.DENTRO_DA_LEI, "Tripa Seca");
-		Pistoleiro rachaCuca = factory.create(TipoPistoleiro.FORA_DA_LEI, "Racha cuca");
-
+	public void duelar() {
 		// Enquando os dois estiverem vivos o duelo continua
-		while (tripaSeca.estaVivo() && rachaCuca.estaVivo()) {
-			// C�digo faz o pistoleiro rachaCuca defender o tiro de tripaSeca, e
-			// a linha abaixo faz o contrario. Como nosso jogo � simplificado
-			// n�o precisa definir quem atira primeiro
-			rachaCuca.defenderTiro(tripaSeca.atirar());
-			tripaSeca.defenderTiro(rachaCuca.atirar());
+		while (pistoleiro1.estaVivo() && pistoleiro2.estaVivo()) {
+			pistoleiro2.defenderTiro(pistoleiro1.atirar());
+			pistoleiro1.defenderTiro(pistoleiro2.atirar());
 		}
 
 		// Verifica qual pistoleiro esta vivo e imprime o nome deste como
 		// vencedor do duelo
-		if (tripaSeca.estaVivo() && !rachaCuca.estaVivo()) {
-			System.out.println("Pistoleiro Tripa seca vence o duelo");
-		} else if (!tripaSeca.estaVivo() && rachaCuca.estaVivo()) {
-			System.out.println("Pistoleiro Racha Cuca vence o duelo");
+		if (pistoleiro1.estaVivo() && !pistoleiro2.estaVivo()) {
+			System.out.println(String.format("Pistoleiro %s vence o duelo", pistoleiro1.getNome()));
+		} else if (!pistoleiro1.estaVivo() && pistoleiro2.estaVivo()) {
+			System.out.println(String.format("Pistoleiro %s vence o duelo", pistoleiro2.getNome()));
 		} else {
 			// Se entrar no else � porque n�o houve ganhador
 			System.out.println("N�o houve vencedor do duelo");
