@@ -3,6 +3,7 @@ package br.univel.duelo;
 import br.univel.duelo.arma.Arma;
 import br.univel.duelo.arma.ArmaFactory;
 import br.univel.duelo.arma.TipoArma;
+import br.univel.duelo.loja.Loja;
 import br.univel.duelo.pistoleiro.Pistoleiro;
 import br.univel.duelo.pistoleiro.PistoleiroFactory;
 import br.univel.duelo.pistoleiro.TipoPistoleiro;
@@ -15,6 +16,7 @@ public class DueloBuilder {
 	private TipoPistoleiro tipo2;
 	private PistoleiroFactory pistoleiroFactory;
 	private ArmaFactory armaFactory;
+	private Loja lojaMunicao;
 
 	public String getNome1() {
 		return nome1;
@@ -70,11 +72,28 @@ public class DueloBuilder {
 		return this;
 	}
 
+	public Loja getLojaMunicao() {
+		return lojaMunicao;
+	}
+
+	public DueloBuilder setLojaMunicao(Loja lojaMunicao) {
+		this.lojaMunicao = lojaMunicao;
+		return this;
+	}
+
 	public Duelo build() {
 		final Pistoleiro pistoleiro1 = this.pistoleiroFactory.create(tipo1, nome1);
 		final Pistoleiro pistoleiro2 = this.pistoleiroFactory.create(tipo2, nome2);
+
 		final Arma arma1 = this.armaFactory.create(TipoArma.LONGA);
 		final Arma arma2 = this.armaFactory.create(TipoArma.LONGA);
+
+		arma1.recarregar(this.lojaMunicao.venda(10));
+		arma2.recarregar(this.lojaMunicao.venda(10));
+
+		arma1.adcionarObservador(pistoleiro1);
+		arma2.adcionarObservador(pistoleiro2);
+
 		pistoleiro1.setArma(arma1);
 		pistoleiro2.setArma(arma2);
 

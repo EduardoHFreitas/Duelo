@@ -31,8 +31,8 @@ public class Duelo {
 	public void duelar() {
 		// Enquando os dois estiverem vivos o duelo continua
 		while (pistoleiro1.estaVivo() && pistoleiro2.estaVivo()) {
-			pistoleiro2.defenderTiro(pistoleiro1.atirar());
 			pistoleiro1.defenderTiro(pistoleiro2.atirar());
+			pistoleiro2.defenderTiro(pistoleiro1.atirar());
 		}
 
 		// Verifica qual pistoleiro esta vivo e imprime o nome deste como
@@ -43,7 +43,7 @@ public class Duelo {
 			System.out.println(String.format("Pistoleiro %s vence o duelo", pistoleiro2.getNome()));
 		} else {
 			// Se entrar no else � porque n�o houve ganhador
-			System.out.println("N�o houve vencedor do duelo");
+			System.out.println("NAO HOUVE VENCEDOR NO DUELO");
 		}
 
 	}

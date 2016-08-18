@@ -28,11 +28,14 @@ public abstract class AbstractPistoleiro implements Pistoleiro{
 
 	@Override
 	public Float atirar(){
+		Float tiro = 0F;
 		if (this.arma != null){
-			return this.arma.atirar() * precisao;
+			tiro = this.arma.atirar() * precisao;
+		} else {
+			System.out.println(String.format("Pistoleiro %s nao tem arma!", getNome()));
 		}
-		System.out.println(String.format("Pistoleiro %s nao tem arma!", getNome()));
-		return 0f;
+
+		return tiro;
 	}
 
 	@Override
@@ -49,5 +52,11 @@ public abstract class AbstractPistoleiro implements Pistoleiro{
 	@Override
 	public String getNome(){
 		return this.nome;
+	}
+
+	public void armaAtualizada(final Arma arma){
+		if(!arma.temMunicoes()){
+			arma.recarregar(5);
+		}
 	}
 }

@@ -10,4 +10,6 @@ public interface Arma {
 	Arma recarregar(Integer municoes);
 
 	Boolean temMunicoes();
+
+	void adcionarObservador(final ArmaObserver observador);
 }
