@@ -11,5 +11,5 @@ public interface Arma {
 
 	Boolean temMunicoes();
 
-	void adcionarObservador(final ArmaObserver observador);
+	void adicionarObservador(final ArmaObserver observador);
 }

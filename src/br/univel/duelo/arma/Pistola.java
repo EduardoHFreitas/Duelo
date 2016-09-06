@@ -8,7 +8,7 @@ public class Pistola implements Arma {
 
 		private final List<ArmaObserver> observadores = new ArrayList<>();
 
-		public void adcionarObservador(final ArmaObserver observador){
+		public void adicionarObservador(final ArmaObserver observador){
 			this.observadores.add(observador);
 		}
 

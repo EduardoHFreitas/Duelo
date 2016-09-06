@@ -13,36 +13,34 @@ public class PistoleiroAdapter implements Pistoleiro {
 
 	@Override
 	public void armaAtualizada(Arma arma) {
-
+		System.out.println("NAO PRECISO ATUALIZAR MINHA ARMA");
 	}
 
 	@Override
 	public Float atirar() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.policial.atirar();
 	}
 
 	@Override
 	public Pistoleiro defenderTiro(Float tiro) {
-		// TODO Auto-generated method stub
-		return null;
+		this.policial.defenderTiro(tiro);
+		return this;
 	}
 
 	@Override
 	public Boolean estaVivo() {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("EU SO BIXAO, NAO MORRO SEU BOSTA");
+		return true;
 	}
 
 	@Override
 	public String getNome() {
-		// TODO Auto-generated method stub
-		return null;
+		return "Matias";
 	}
 
 	@Override
 	public Pistoleiro setArma(Arma arma) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("762");
+		return this;
 	}
 }

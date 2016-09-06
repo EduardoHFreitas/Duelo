@@ -8,7 +8,7 @@ public class Rifle implements Arma {
 	private Integer municoes = 0;
 	private final List<ArmaObserver> observadores = new ArrayList<>();
 
-	public void adcionarObservador(final ArmaObserver observador) {
+	public void adicionarObservador(final ArmaObserver observador) {
 		this.observadores.add(observador);
 	}
 

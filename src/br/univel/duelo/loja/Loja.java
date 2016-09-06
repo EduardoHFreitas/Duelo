@@ -2,7 +2,7 @@ package br.univel.duelo.loja;
 
 public class Loja {
 
-	private Integer municoes = 5;
+	private Integer municoes = 1000;
 	private static Loja instancia;
 
 	private Loja(){

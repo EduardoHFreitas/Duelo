@@ -1,5 +1,7 @@
 package br.univel.duelo;
 
+import java.util.Arrays;
+
 import br.univel.duelo.arma.Arma;
 import br.univel.duelo.arma.ArmaFactory;
 import br.univel.duelo.arma.TipoArma;
@@ -7,6 +9,8 @@ import br.univel.duelo.loja.Loja;
 import br.univel.duelo.pistoleiro.Pistoleiro;
 import br.univel.duelo.pistoleiro.PistoleiroFactory;
 import br.univel.duelo.pistoleiro.TipoPistoleiro;
+import br.univel.duelo.pistoleiro.bando.BandoFactory;
+import br.univel.duelo.pistoleiro.bando.PistoleiroBando;
 
 public class DueloBuilder {
 
@@ -91,13 +95,30 @@ public class DueloBuilder {
 		arma1.recarregar(this.lojaMunicao.venda(10));
 		arma2.recarregar(this.lojaMunicao.venda(10));
 
-		arma1.adcionarObservador(pistoleiro1);
-		arma2.adcionarObservador(pistoleiro2);
+		arma1.adicionarObservador(pistoleiro1);
+		arma2.adicionarObservador(pistoleiro2);
 
 		pistoleiro1.setArma(arma1);
 		pistoleiro2.setArma(arma2);
 
 		return new Duelo(pistoleiro1, pistoleiro2);
+	}
+
+	public Pistoleiro buildBando(final String nomeBando, String... pistoleiros){
+		final BandoFactory factory =  new BandoFactory();
+
+		final PistoleiroBando bando = factory.create(TipoPistoleiro.DENTRO_DA_LEI,  nomeBando);
+
+		Arrays.stream(pistoleiros).forEach(nome -> {
+			Pistoleiro p = this.pistoleiroFactory.create(this.tipo1, nome);
+			final Arma arma = this.armaFactory.create(TipoArma.LONGA);
+			arma.recarregar(this.lojaMunicao.venda(10));
+			arma.adicionarObservador(p);
+			p.setArma(arma);
+			bando.adicionarIntegrante(p);
+		});
+
+		return bando;
 	}
 
 }
